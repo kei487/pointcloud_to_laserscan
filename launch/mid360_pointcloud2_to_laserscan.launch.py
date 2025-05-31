@@ -29,6 +29,13 @@ def generate_launch_description():
 #                ],
 #            )
 
+    lidar_tf = launch_ros.actions.Node(
+	name='lidar_tf',
+	package='tf2_ros',
+	executable='static_transform_publisher',
+	arguments=['0.2', '0.15', '0', '0', '0.390731', '0', '0.920505','base_link','lidar_link']
+    )
+
     pc2_to_scan = Node(
         package='pointcloud_to_laserscan',
         executable='pointcloud_to_laserscan_node',
@@ -55,6 +62,7 @@ def generate_launch_description():
     ld = LaunchDescription()
 #    ld.add_action(define_livox_frame)
 #    ld.add_action(define_robot_frame)
+    ld.add_action(lidar_tf)
     ld.add_action(pc2_to_scan)
 
     return ld

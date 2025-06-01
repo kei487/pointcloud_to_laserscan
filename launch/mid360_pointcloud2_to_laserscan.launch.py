@@ -40,6 +40,7 @@ def generate_launch_description():
 	package='tf2_ros',
 	executable='static_transform_publisher',
 	arguments=['0.2', '0.15', '0', '0', '0', '0', '0','base_link','lidar_base']
+    )
 
     pc2_to_scan = Node(
         package='pointcloud_to_laserscan',

@@ -68,6 +68,7 @@ def generate_launch_description():
 #    ld.add_action(define_livox_frame)
 #    ld.add_action(define_robot_frame)
     ld.add_action(lidar_tf)
+    ld.add_action(lidarbase_tf)
     ld.add_action(pc2_to_scan)
 
     return ld

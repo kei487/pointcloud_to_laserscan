@@ -45,7 +45,7 @@ def generate_launch_description():
         parameters=[{
             'target_frame': 'lidar_base',
             'transform_tolerance': 0.01,
-            'min_height': 0.0,
+            'min_height': -0.5,
             'max_height': 0.1,
             'angle_min': -2.50, # -3.1415,
             'angle_max': 2.50, # 3.1415,

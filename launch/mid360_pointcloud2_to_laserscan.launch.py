@@ -39,7 +39,7 @@ def generate_launch_description():
 	name='lidar_tf',
 	package='tf2_ros',
 	executable='static_transform_publisher',
-	arguments=['0.2', '0.15', '0', '0', '0', '0', '0','base_link','lidar_base']
+	arguments=['0.2', '0.15', '0', '0', '0', '0', '1','base_link','lidar_base']
     )
 
     pc2_to_scan = Node(
@@ -51,8 +51,8 @@ def generate_launch_description():
         parameters=[{
             'target_frame': 'lidar_base',
             'transform_tolerance': 0.01,
-            'min_height': -0.5,
-            'max_height': 0.1,
+            'min_height': -0.2,
+            'max_height': 0.2,
             'angle_min': -2.50, # -3.1415,
             'angle_max': 2.50, # 3.1415,
             'angle_increment': 0.0087,  # M_PI/360.0

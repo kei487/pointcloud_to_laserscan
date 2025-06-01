@@ -29,7 +29,7 @@ def generate_launch_description():
 #                ],
 #            )
 
-    lidar_tf = actions.Node(
+    lidar_tf = Node(
 	name='lidar_tf',
 	package='tf2_ros',
 	executable='static_transform_publisher',

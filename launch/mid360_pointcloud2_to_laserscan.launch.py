@@ -33,8 +33,13 @@ def generate_launch_description():
 	name='lidar_tf',
 	package='tf2_ros',
 	executable='static_transform_publisher',
-	arguments=['0.2', '0.15', '0', '0', '0.390731', '0', '0.920505','base_link','lidar_link']
+	arguments=['0', '0', '0', '0', '0.390731', '0', '0.920505','lidar_base','lidar_link']
     )
+    lidarbase_tf = Node(
+	name='lidar_tf',
+	package='tf2_ros',
+	executable='static_transform_publisher',
+	arguments=['0.2', '0.15', '0', '0', '0', '0', '0','base_link','lidar_base']
 
     pc2_to_scan = Node(
         package='pointcloud_to_laserscan',
@@ -43,7 +48,7 @@ def generate_launch_description():
         remappings=[('cloud_in', '/livox/lidar'),
                     ('scan', '/scan')],
         parameters=[{
-            'target_frame': 'lidar_link',
+            'target_frame': 'lidar_base',
             'transform_tolerance': 0.01,
             'min_height': -0.5,
             'max_height': 0.1,
